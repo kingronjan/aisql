@@ -11,7 +11,18 @@ client = OpenAI(
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
 )
 completion = client.chat.completions.create(
-    model="qwen3.5-plus",
-    messages=[{'role': 'user', 'content': '你是谁？'}]
+    model="qwen3-max",
+    messages=[
+        {'role': 'system', 'content': '你是一个 Python 编程专家，并且不说废话，简单回答'},
+        {'role': 'assistant', 'content': '好的，我是编程专家，并且话不多，你要问什么？'},
+        {'role': 'user', 'content': '输入 1-10 的数字，使用 Python 代码'}
+    ],
+    stream=True
 )
-print(completion.choices[0].message.content)
+
+# print(completion.choices[0].message.content)
+
+# 流式输出
+for chunk in completion:
+    print(chunk.choices[0].delta.content, end='')
+
