@@ -1,0 +1,18 @@
+[project]
+name = "aisql"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "chromadb>=1.5.5",
+    "dashscope>=1.25.13",
+    "langchain>=1.2.12",
+    "langchain-community>=0.4.1",
+    "langchain-ollama>=1.0.1",
+    "langchain-postgres>=0.0.17",
+    "openai>=2.26.0",
+    "psycopg2-binary>=2.9.11",
+    "psycopg[binary]>=3.3.3",
+    "pydantic-settings>=2.13.1",
+]
