@@ -5,10 +5,11 @@ from langchain_core.indexing import index
 
 from aisql.settings import settings
 
+
 def main():
     # 1. 初始化向量库 (存储向量)
     collection_name = settings.vector_collection_name
-    connection_string = settings.pg_conn_str
+    connection_string = settings.db_conn_str
     embeddings = DashScopeEmbeddings(dashscope_api_key=settings.api_key)
 
     vector_store = PGVector(
